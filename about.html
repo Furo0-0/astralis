@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&display=swap"
+      rel="stylesheet"
+    />
+    <!-- fredoka font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&family=Fredoka:wght@300..700&family=Jacquarda+Bastarda+9&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Protest+Guerrilla&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- poppins font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&family=Fredoka:wght@300..700&family=Jacquarda+Bastarda+9&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Protest+Guerrilla&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+  </head>
+
+  <style>
+    :root {
+      --splash-bg: #533acf;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      overflow: hidden;
+      font-family: "Anton", sans-serif;
+    }
+
+    /* Splash Screen */
+    #splash {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #ff59d8;
+      background: linear-gradient(
+        0deg,
+        rgba(255, 89, 216, 1) 0%,
+        rgba(173, 61, 173, 1) 31%,
+        rgba(59, 34, 140, 1) 100%
+      );
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      user-select: none;
+      animation: fadeOutSplash 3.1s ease-out forwards;
+    }
+
+    #splashmotto {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-family: "Bebas Neue", sans-serif;
+      font-weight: 400;
+      text-align: center;
+      opacity: 0.15;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      line-height: 0.9;
+      z-index: 1;
+    }
+
+    #splashlogo {
+      position: relative;
+      z-index: 2;
+      filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.6));
+    }
+
+    #splashtitle {
+      font-family: "Anton", sans-serif;
+      font-weight: 500;
+      color: white;
+      letter-spacing: -0.2vh;
+      text-shadow: 2px 2px 8px rgba(195, 167, 6, 0.6);
+      z-index: 2;
+      position: relative;
+    }
+
+    .fronttitleletter.showAnim {
+      animation: flamingLetters 0.75s linear;
+    }
+
+    /* Mobile Portrait */
+    @media (max-width: 1024px) and (orientation: portrait) {
+      #splashmotto {
+        font-size: 12vw;
+        width: 90vw;
+      }
+
+      #splashlogo {
+        width: 60vw;
+        animation: logoAnimMobile 3s ease-out;
+      }
+
+      #splashtitle {
+        font-size: 12vw;
+        animation: titleAnimMobile 3s ease-out;
+      }
+    }
+
+    /* Desktop and Landscape */
+    @media (min-width: 1025px), (orientation: landscape) {
+      #splashmotto {
+        font-size: 12vw;
+        width: 80vw;
+      }
+
+      #splashlogo {
+        width: 50vh;
+        max-width: 400px;
+        animation: logoAnimDesktop 3s ease-out;
+      }
+
+      #splashtitle {
+        font-size: 10vh;
+        animation: titleAnimDesktop 3s ease-out;
+      }
+    }
+
+    /* Landscape Mobile */
+    @media (max-width: 1024px) and (orientation: landscape) {
+      #splashmotto {
+        font-size: 6vw;
+        width: 70vw;
+      }
+
+      #splashlogo {
+        width: 35vh;
+      }
+
+      #splashtitle {
+        font-size: 6vh;
+      }
+    }
+
+    /* Animations */
+    @keyframes fadeOutSplash {
+      0%,
+      75% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+
+    @keyframes logoAnimMobile {
+      0% {
+        width: 20vw;
+        opacity: 0.3;
+        transform: translateY(50vh) rotate(0deg);
+      }
+      40%,
+      100% {
+        width: 60vw;
+        opacity: 1;
+        transform: translateY(0) rotate(360deg);
+      }
+    }
+
+    @keyframes logoAnimDesktop {
+      0% {
+        width: 20vh;
+        opacity: 0.3;
+        transform: translateY(30vh) rotate(0deg);
+      }
+      40%,
+      100% {
+        width: 50vh;
+        opacity: 1;
+        transform: translateY(0) rotate(360deg);
+      }
+    }
+
+    @keyframes titleAnimMobile {
+      0%,
+      35% {
+        font-size: 4vw;
+        opacity: 0;
+      }
+      50%,
+      100% {
+        font-size: 12vw;
+        opacity: 1;
+      }
+    }
+
+    @keyframes titleAnimDesktop {
+      0%,
+      35% {
+        font-size: 3vh;
+        opacity: 0;
+      }
+      50%,
+      100% {
+        font-size: 14vh;
+        opacity: 1;
+      }
+    }
+
+    @keyframes flamingLetters {
+      0%,
+      100% {
+        color: #e0d920;
+        text-shadow: 2px 2px 8px rgba(255, 230, 0, 0.6);
+      }
+      25% {
+        color: #d2b541;
+        text-shadow: 0 2px 10px rgba(255, 230, 0, 0.8),
+          0 -2px 10px rgba(255, 230, 0, 0.8), 2px 0 10px rgba(255, 230, 0, 0.8),
+          -2px 0 10px rgba(255, 230, 0, 0.8);
+      }
+      50% {
+        color: #b08c15;
+        text-shadow: 0 4px 15px rgba(255, 230, 0, 0.8),
+          0 -4px 15px rgba(255, 230, 0, 0.8), 3px 0 15px rgba(255, 230, 0, 0.8),
+          -3px 0 15px rgba(255, 230, 0, 0.8);
+      }
+    }
+  </style>
+
+  <body>
+    <div id="splash">
+      <div id="splashmotto">
+        GUIDED BY THE STARS<br />
+        IGNITE THE NIGHT
+      </div>
+      <img id="splashlogo" src="Assets/logo.png" alt="Astralis Logo" />
+      <h1 id="splashtitle">
+        <span class="fronttitleletter">A</span>
+        <span class="fronttitleletter">S</span>
+        <span class="fronttitleletter">T</span>
+        <span class="fronttitleletter">R</span>
+        <span class="fronttitleletter">A</span>
+        <span class="fronttitleletter">L</span>
+        <span class="fronttitleletter">I</span>
+        <span class="fronttitleletter">S</span>
+      </h1>
+    </div>
+    <!-- header -->
+    <header>
+      <!-- left -->
+      <div class="header-l">
+        <!-- logo -->
+        <div>
+          <a href="index.html#home"
+            ><img src="Assets/logo.png" alt="" class="logo-img"
+          /></a>
+        </div>
+        <!-- title -->
+        <div class="title">
+          <a href="index.html#intro">Astralis</a>
+        </div>
+      </div>
+
+      <!-- right -->
+      <div class="header-r">
+        <!-- activity -->
+        <div class="header-text">
+          <a href="index.html#activity">Activities</a>
+        </div>
+        <!-- vid -->
+        <div class="header-text">
+          <a href="index.html#vid">Video</a>
+        </div>
+        <!-- abt -->
+        <div class="join-text">
+          <a href="about.html">Commitee</a>
+        </div>
+        <!-- join -->
+        <div class="join-text">
+          <a href="form.html">Join</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- main -->
+    <main>
+      <!-- members -->
+      <div id="members">
+        <h1 class="text-title">Our Members</h1>
+        <!-- ketua -->
+        <div class="ketua">
+          <div class="ketua-container">
+            <p class="text-padding">Hilarius Jenson Phang (KETUA)</p>
+          </div>
+        </div>
+
+        <div class="container">
+          <div class="member-container">
+            <p class="text-padding">Revaline Tan Aurelia (Proposal)</p>
+          </div>
+
+          <div class="member-container">
+            <p class="text-padding">Khairunisa Lubna (Rundown)</p>
+          </div>
+
+          <div class="member-container">
+            <p class="text-padding">Natasya Janeta (Anggaran)</p>
+          </div>
+        </div>
+
+        <!-- kegiatan -->
+        <div class="sekbid-container">
+          <h2 class="sekbid-text">Kegiatan</h2>
+          <div class="container">
+            <div class="member-container">
+              <p class="text-padding">Celine Liivina Rusli</p>
+            </div>
+
+            <div class="member-container">
+              <p class="text-padding">Andrew Denzel Nanda</p>
+            </div>
+
+            <div class="member-container">
+              <p class="text-padding">Keneisha Jocelyn Herin</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ppt -->
+        <div class="sekbid-container">
+          <h2 class="sekbid-text">DDV</h2>
+          <div class="container">
+            <div class="member-container">
+              <p class="text-padding">Ramadhani Alaya Rasyid</p>
+            </div>
+
+            <div class="member-container">
+              <p class="text-padding">Alexandro Risamanto</p>
+            </div>
+          </div>
+
+          <div class="container">
+            <div class="member-container">
+              <p class="text-padding">Priscilla Meisandri Lim</p>
+            </div>
+
+            <div class="member-container">
+              <p class="text-padding">Zavier Rafif Al Farisi</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- website -->
+        <div class="sekbid-container">
+          <h2 class="sekbid-text">Website</h2>
+          <div class="container">
+            <div class="member-container">
+              <p class="text-padding">Richiro Huang</p>
+            </div>
+
+            <div class="member-container">
+              <p class="text-padding">Muhammad Agyasa El Shirazy Agung</p>
+            </div>
+
+            <div class="member-container">
+              <p class="text-padding">Falia Izzatunnisa</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- publikasi -->
+        <div class="sekbid-container">
+          <h2 class="sekbid-text">Dokumentasi</h2>
+          <div class="container">
+            <div class="member-container">
+              <p class="text-padding">Adeline</p>
+            </div>
+
+            <div class="member-container">
+              <p class="text-padding">Oriana Toha</p>
+            </div>
+          </div>
+
+          <div class="container">
+            <div class="member-container">
+              <p class="text-padding">Khaeirin Alya Al Ghaffar</p>
+            </div>
+          </div>
+
+          <div class="container">
+            <div class="member-container">
+              <p class="text-padding">Deanisha Pramudita Ayu Gumilang</p>
+            </div>
+
+            <div class="member-container">
+              <p class="text-padding">Nafisah Azka Amalia</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- art -->
+        <div class="sekbid-container">
+          <h2 class="sekbid-text">Design</h2>
+          <div class="container">
+            <div class="member-container">
+              <p class="text-padding">Meilovecia Kayla Sabitha</p>
+            </div>
+
+            <div class="member-container">
+              <p class="text-padding">Jaqueen Sheeva Millefiori</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- footer -->
+    <footer>
+      <!-- copyright -->
+      <div class="copyright">
+        <p class="footer-text">Copyright © 2025 Kelompok 1 Magang</p>
+      </div>
+    </footer>
+
+    <!-- spash script -->
+    <script>
+      // Scroll to top on refresh
+      window.onbeforeunload = () => window.scrollTo(0, 0);
+
+      let animDelay = false;
+      const letters = document.querySelectorAll(".fronttitleletter");
+
+      // Animate letters function
+      function animateLetters(letterArray, delay = 100) {
+        if (animDelay) return;
+
+        animDelay = true;
+        letterArray.forEach((letter) => letter.classList.remove("showAnim"));
+
+        letterArray.forEach((letter, index) => {
+          setTimeout(() => {
+            letter.classList.add("showAnim");
+          }, index * delay);
+        });
+
+        setTimeout(() => {
+          animDelay = false;
+        }, 1500);
+      }
+
+      // Start splash animation
+      setTimeout(() => {
+        animateLetters(letters, 100);
+      }, 1150);
+
+      // Hide splash screen
+      setTimeout(() => {
+        document.getElementById("splash").style.display = "none";
+        document.body.style.overflow = "auto";
+      }, 3100);
+    </script>
+
+    <script src="scrpt.js"></script>
+  </body>
+</html>
